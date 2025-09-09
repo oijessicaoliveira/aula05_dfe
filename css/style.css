@@ -79,7 +79,9 @@ a:focus {
   display: flex; /* Ativa o contexto flexível */
   gap: 8px; /* Espaçamento uniforme entre os itens */
   justify-content: center; /* Centraliza os itens do menu horizontalmente */
+  flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
 }
+
 .nav li { margin-right: 0; } /* Garante que não haja margem herdada à direita (redundância defensiva) */
 .nav a {
   padding: 6px 12px; /* Área clicável confortável (alvo maior melhora usabilidade) */
