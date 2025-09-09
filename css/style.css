@@ -80,14 +80,23 @@ a:focus {
   gap: 8px; /* Espaçamento uniforme entre os itens */
   justify-content: center; /* Centraliza os itens do menu horizontalmente */
   flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
+  row-gap: 6px; /* espaço vertical entre as linhas do menu */
 }
 
-.nav li { margin-right: 0; } /* Garante que não haja margem herdada à direita (redundância defensiva) */
+.nav li { 
+  margin-right: 0; /* Garante que não haja margem herdada à direita (redundância defensiva) */
+  flex: 0 0 auto; /* cada item mantém seu tamanho natural; não estica */
+}
+
 .nav a {
   padding: 6px 12px; /* Área clicável confortável (alvo maior melhora usabilidade) */
   border-radius: 6px; /* Cantos arredondados nos links do menu */
   font-weight: 500; /* Peso médio para dar presença no menu */
   transition: background-color 0.2s ease-in-out; /* Animação suave ao mudar o fundo no hover */
+  white-space: nowrap;      /* evita quebra dentro do texto de cada link */
+  display: inline-flex;     /* garante cálculo de largura consistente com padding */
+  align-items: center;
+  justify-content: center;
 }
 .nav a:hover {
   background: #e9ecef; /* Fundo claro no hover para indicar interação */
@@ -387,6 +396,36 @@ body {
      '0' (deslocamento X), '4px' (deslocamento Y), '8px' (desfoque), 'rgba(0,0,0,0.1)' (cor preta com 10% de opacidade). */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* leve sombra */
 }
+
+/* === Diferenciais com imagens centralizadas ========================== */
+.diferenciais-flex {
+  display: flex;
+  justify-content: center;   /* centraliza o grupo inteiro */
+  gap: 32px;                 /* espaço entre cada diferencial */
+  margin: 24px 0;
+}
+
+.diferenciais-flex figure {
+  flex: 0 1 250px;           /* largura máxima de cada card */
+  text-align: center;
+}
+
+.diferenciais-flex img {
+  width: 100%;               /* ocupa toda a largura do card */
+  max-width: 220px;          /* limite para não ficar gigante */
+  height: auto;              /* mantém proporção */
+  margin: 0 auto 12px auto;  /* centraliza no card */
+  border-radius: 8px;        /* cantos arredondados */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* sombra leve */
+}
+
+.diferenciais-flex figcaption {
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+
+
 
 /* '@media (max-width: 768px)' novamente, a regra para telas menores. */
 @media (max-width: 768px) {
